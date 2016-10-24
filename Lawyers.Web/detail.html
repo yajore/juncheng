@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="email=no" name="format-detection" />
+    <link type="text/css" rel="stylesheet" href="css/style.css?ver=20161006" />
+    <title>详情-君诚律盟</title>
+</head>
+<body id="page-detail" v-cloak>
+    <h3 class="title">{{item.Title}}</h3>
+    <div class="summary">
+        <span>{{item.InUser}}</span>·<span class="time">{{getLongDate(item.PublisherDate)}}</span>
+    </div>
+    <div class="contents">
+        {{{item.Contents}}}
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/core.js"></script>
+    <script src="//cdn.bootcss.com/vue/1.0.26/vue.min.js"></script>
+    <script src="js/page/detail.js"></script>
+
+</body>
+</html>

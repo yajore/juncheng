@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="email=no" name="format-detection" />
+    <link type="text/css" rel="stylesheet" href="css/style.css?ver=20161006" />
+    <title>留言咨询</title>
+</head>
+
+<body id="page-message">
+
+    <div class="u-message bb-1">
+        <h3>友情提示：</h3>
+        <p>欢迎向{{item.Lawyer}}律师咨询信息</p>
+        <textarea class="u-textarea" rows="6" id="txtContents"
+                  v-model="item.Contents"></textarea>
+        <input class="u-input" type="tel" placeholder="请输入手机号码" maxlength="11" 
+               v-model="item.Mobile" id="txtMobile"/>
+        <div class="u-cdeo">
+            <input class="u-input u-input-b" type="tel" placeholder="请输入验证码" 
+                   v-model="item.Code" id="txtCode" />
+            <a href="#" class="u-code"
+               v-on:click.prevent="getCode()">{{codeText}}</a>
+        </div>
+        <button class="u-btn" v-on:click.prevent="add()">提 交</button>
+    </div>
+    <p class="desc">信息描述</p>
+
+    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/core.js"></script>
+    <script src="//cdn.bootcss.com/vue/1.0.26/vue.min.js"></script>
+    <script src="js/page/consultation.js"></script>
+
+</body>
+
+</html>

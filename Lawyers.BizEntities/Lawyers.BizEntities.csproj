@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{56A6A022-ABEB-4EFA-8104-6F885ABA8040}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lawyers.BizEntities</RootNamespace>
+    <AssemblyName>Lawyers.BizEntities</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Valon.Framework.Data">
+      <HintPath>..\..\..\..\..\..\ValonFrameworkConfig\ReferenceLib\Valon.Framework.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Article\ArticleData.cs" />
+    <Compile Include="Article\ArticleQueryData.cs" />
+    <Compile Include="Article\ArticleStatusData.cs" />
+    <Compile Include="Article\SearchResultData.cs" />
+    <Compile Include="BaseData.cs" />
+    <Compile Include="Consultation\ConsultationData.cs" />
+    <Compile Include="Consultation\ConsultationQueryData.cs" />
+    <Compile Include="Customer\CustomerAccountQueryData.cs" />
+    <Compile Include="Customer\CustomerData.cs" />
+    <Compile Include="Customer\CustomerFieldData.cs" />
+    <Compile Include="Customer\CustomerLoginData.cs" />
+    <Compile Include="Customer\CustomerPwdData.cs" />
+    <Compile Include="Customer\CustomerQueryData.cs" />
+    <Compile Include="Customer\CustomerSkillData.cs" />
+    <Compile Include="Customer\CustomerSortData.cs" />
+    <Compile Include="Customer\CustomerStatusData.cs" />
+    <Compile Include="Customer\RegisterData.cs" />
+    <Compile Include="Customer\UserLoginData.cs" />
+    <Compile Include="EntryID.cs" />
+    <Compile Include="Material\MaterialData.cs" />
+    <Compile Include="Material\MaterialQueryData.cs" />
+    <Compile Include="Msg\MsgData.cs" />
+    <Compile Include="Msg\ReqMsgData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleRight\MenuData.cs" />
+    <Compile Include="RoleRight\MenuExtentData.cs" />
+    <Compile Include="RoleRight\RoleData.cs" />
+    <Compile Include="RoleRight\RoleRightListData.cs" />
+    <Compile Include="RoleRight\UserPasswordSetData.cs" />
+    <Compile Include="RoleRight\UserRoleData.cs" />
+    <Compile Include="RoleRight\UserRoleQueryData.cs" />
+    <Compile Include="RoleRight\UserRoleUpdateData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

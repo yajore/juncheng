@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>君诚律盟 | 用户登录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link href="static/css/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="http://juncheng.oss-cn-shanghai.aliyuncs.com/css/components-md.css" rel="stylesheet" />
+
+    <link href="static/css/pages/login-5.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<!-- END HEAD -->
+<body class=" login">
+    <!-- BEGIN : LOGIN PAGE 5-1 -->
+    <div class="user-login-5">
+        <div class="row bs-reset">
+            <div class="col-md-6 bs-reset">
+                <div class="login-bg" style="background-image:url(static/img/pages/login/bg1.jpg)">
+                    <img class="login-logo" src="http://juncheng.oss-cn-shanghai.aliyuncs.com/images/banner/logo.jpg" sty />
+                </div>
+            </div>
+            <div class="col-md-6 login-container bs-reset">
+                <div class="login-content">
+                    <h1>君诚律盟平台登录</h1>
+                    <p>
+                        enjoy the pleasure of the journey .<br />
+                        请确保使用最新的浏览器来使用本系统.<br />
+                        <a href="http://sw.bos.baidu.com/sw-search-sp/software/29cd900ea7d/ChromeStandalone_50.0.2661.102_Setup.exe" target="_blank"><i class="fa fa-chrome"></i>
+                        谷歌</a> |
+                        <a href="http://www.opera.com/zh-cn" target="_blank"><i class="fa fa-opera">
+                            欧朋</i></a> |
+                        <a href="https://www.baidu.com/link?url=X5X39g4aAl8vN1lsBbQr96VVKD328mz_hMotMRYwS0UdwCJTOxpWyrymHPoM2oqaDM-r7DD8AdxIcRZBLw1vkRuH9h0euiDhC2pv1BiJyaa&wd=&eqid=b74abc2f000028170000000457689e99" target="_blank"><i class="fa fa-safari"></i>
+                        苹果</a> |
+                        <a href="http://chrome.360.cn/" target="_blank">
+                        360极速</a> |
+                        <a href="http://browser.qq.com/" target="_blank">
+                        QQ</a> |
+                        <a href="http://ie.sogou.com/" target="_blank">
+                        搜狗急速</a> |
+                        <a href="#" >IE9及以上</a>等
+                    </p>
+                    <form action="login.ashx" class="login-form" method="post">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group form-md-line-input has-success form-md-floating-label">
+                                    <div class="input-icon">
+                                        <input type="text" class="form-control" id="txt_account">
+                                        <label for="txt_account">账号</label>
+                                        <span class="help-block">请输入您的账号</span>
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group form-md-line-input has-success form-md-floating-label">
+                                    <div class="input-icon">
+                                        <input type="password" class="form-control" id="txt_password">
+                                        <label for="txt_password">密码</label>
+                                        <span class="help-block">请输入您的密码</span>
+                                        <i class="fa fa-key"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger alert-login display-hide" id="alert-box">
+                            <span>请输入账号和密码. </span>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="rem-password">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="cb_remeber"> 记住密码
+                                        </label>
+                                    </div>
+
+                                    <!--<p>
+                                        <label>  Remember Me<input type="checkbox" class="rem-checkbox" /></label>
+
+                                    </p>-->
+                                </div>
+                            </div>
+                            <div class="col-sm-8 text-right">
+                                <div class="forgot-password">
+                                    <a href="javascript:;" id="forget-password" class="forget-password">忘记密码?</a>
+                                </div>
+                                <button class="btn blue" type="submit" id="btn-login">登 录</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- BEGIN FORGOT PASSWORD FORM -->
+                    <form class="forget-form display-hide" action="javascript:;" method="post">
+                        <h3 class="font-green">忘记密码 ?</h3>
+                        <p> 输入账号绑定的手机号码. </p>
+                        <div class="form-group form-md-line-input">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="input-group ">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-mobile"></i>
+                                        </span>
+                                        <input class="form-control placeholder-no-fix" type="tel" autocomplete="off" placeholder="手机号码" name="mobile" />
+                                        <div class="form-control-focus"> </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <img src="handler/code.ashx" />
+                                </div>
+                                <div class="col-md-4">
+
+                                    <div class="input-group ">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-picture-o"></i>
+                                        </span>
+                                        <input class="form-control placeholder-no-fix" type="tel"
+                                               autocomplete="off" placeholder="左侧验证码" name="code" />
+                                        <div class="form-control-focus"> </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" id="back-btn" class="btn grey btn-default">
+                                <i class="fa fa-chevron-left"></i>
+                                返 回
+                            </button>
+                            <button type="submit" class="btn blue btn-success uppercase pull-right">
+                                <i class="fa fa-check"></i>
+                                提 交
+                            </button>
+                            <button type="submit" class="btn blue btn-success uppercase pull-right"
+                                    style="margin-right:10px;">
+                                <i class="fa fa-send"></i>
+                                发送短信
+                            </button>
+                        </div>
+                    </form>
+                    <!-- END FORGOT PASSWORD FORM -->
+                </div>
+                <div class="login-footer">
+                    <div class="row bs-reset">
+                        <div class="col-xs-4 bs-reset">
+                            <ul class="login-social">
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-weibo"></i>&nbsp;
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-qq"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-weixin"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-8 bs-reset">
+                            <div class="login-copyright text-right">
+                                <p>Copyright &copy; 君诚律盟 2016</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END : LOGIN PAGE 5-1 -->
+    <!--[if lt IE 9]>
+    <script src="../assets/global/plugins/respond.min.js"></script>
+    <script src="../assets/global/plugins/excanvas.min.js"></script>
+    <![endif]-->
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="static/js/plugins/backstretch/jquery.backstretch.min.js"></script>
+    <script src="static/js/gobal/layout.js"></script>
+    <script src="static/js/page/login-5.js"></script>
+
+</body>
+</html>

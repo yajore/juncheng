@@ -1,0 +1,108 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="email=no" name="format-detection" />
+    <link type="text/css" rel="stylesheet" href="css/style.css?ver=20161006" />
+    <title>君诚律盟</title>
+</head>
+
+<body id="page-lawdetail">
+
+    <div class="mb-96">
+        <div class="title-normal title-normal-b">
+            <h3>
+                <span class="title-circle"></span>
+                {{item.Company}}
+            </h3>
+        </div>
+        <div class="u-info clearfix bb-1">
+            <div class="u-left">
+                <img class="u-face"
+                     v-bind:src="item.Face" />
+                <p class="u-name">{{item.Name}}律师</p>
+                <p class=""><a href="#" v-bind:href="'tel:'+item.Mobile" class="u-call margin-auto">联系他</a></p>
+            </div>
+            <div class="u-left">
+                <img class="u-qcode"
+                     v-bind:src="item.WexinQrcode" />
+            </div>
+        </div>
+
+        <div class="u-intro bb-1">
+            <p class="records weixin">{{item.WexinNo}}</p>
+            <p class="records sms">{{item.Email}}</p>
+            <p class="records qq">{{item.QQNo}}</p>
+            <p class="records address">{{item.Address}}</p>
+        </div>
+
+        <div class="u-word bb-1">
+            <div class="title-normal title-normal-b">
+                <h3>
+                    <span class="title-circle"></span>
+                    TA的关注
+                </h3>
+            </div>
+            <p class="u-content">{{item.Subscribe||'还没有填写关注信息'}}</p>
+        </div>
+
+        <div class="u-word">
+            <div class="title-normal title-normal-b">
+                <h3>
+                    <span class="title-circle"></span>
+                    关于TA
+                </h3>
+            </div>
+            <p class="u-content">{{item.Subscribe||'该律师还没填写履历'}}</p>
+        </div>
+
+    </div>
+
+    <div class="fixed-word one">律师<br />简介</div>
+    <div class="fixed-word two">一键<br />喊话</div>
+    <div class="fixed-word three">专业<br />领域</div>
+    <div class="fixed-word four">
+        <a href="#" v-on:click.prevent="go()">留言<br />咨询</a>
+    </div>
+    <footer>
+        <ul class="ui-nav clearfix">
+            <li class="ui-nav-item ">
+                <a href="index.html">
+                    <span class="ui-icon ui-icon-home"></span>
+                    <span class="ui-nav-item-text">君诚律盟</span>
+                </a>
+            </li>
+            <li class="ui-nav-item">
+                <a href="search.html">
+                    <span class="ui-icon ui-icon-search"></span>
+                    <span class="ui-nav-item-text">搜索</span>
+                </a>
+            </li>
+            <li class="ui-nav-item">
+                <a href="find.html">
+                    <span class="ui-icon ui-icon-find">
+                    </span><span class="ui-nav-item-text">发现</span>
+                </a>
+            </li>
+            <li class="ui-nav-item active">
+                <a href="my.html">
+                    <span class="ui-icon ui-icon-user"></span>
+                    <span class="ui-nav-item-text">我的</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/core.js"></script>
+    <script src="//cdn.bootcss.com/vue/1.0.26/vue.min.js"></script>
+    <script src="js/page/lawdetail.js"></script>
+
+</body>
+
+</html>

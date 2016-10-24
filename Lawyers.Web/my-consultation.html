@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="email=no" name="format-detection" />
+    <link type="text/css" rel="stylesheet" href="css/style.css?ver=20161006" />
+    <title>我的留言-君诚律盟</title>
+</head>
+<body id="page-my-consultation" class="bg-ef">
+    <div class="list-block">
+        <ul>
+            <template v-for="item in items">
+                <li>
+                    <div class="item-content item-link" v-on:click.prevent="go(item)">
+                        <div class="item-stitle ">
+                            咨询律师:{{item.LawyerName}}
+                            <span class="item-date">{{getLongDate(item.InDate)}}</span>
+                        </div>
+                        <div class="item-desc">{{item.Contents}}</div>
+                    </div>
+                </li>
+            </template>
+
+           
+        </ul>
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/core.js"></script>
+    <script src="//cdn.bootcss.com/vue/1.0.26/vue.min.js"></script>
+    <script src="js/page/my-consultation.js"></script>
+
+</body>
+</html>

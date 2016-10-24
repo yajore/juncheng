@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="email=no" name="format-detection" />
+    <link type="text/css" rel="stylesheet" href="css/style.css?ver=20161006" />
+    <title>我的-君诚律盟</title>
+</head>
+
+<body id="page-my" class="bg-ef">
+
+    <div class="my-div-top" id="rang-user">
+        <div class="my-div-media my-img-auto file">
+            <img src="images/face/user.png" alt=""
+                 v-bind:src="item.Face" />
+        </div>
+        <div class="my-div-title">
+            <span class="my-28-text">
+                {{item.Name}}
+            </span>
+        </div>
+
+    </div>
+
+    <div class="list-block">
+        <ul>
+            <li>
+                <a href="my-consultation.html" class="item-content ">
+                    <div class="item-title item-link">我的留言</div>
+                </a>
+            </li>
+            <li>
+                <a href="my-news.html" class="item-content">
+                    <div class="item-title item-link">每日普法</div>
+                </a>
+            </li>
+            <li>
+                <a href="about.html" class="item-content">
+                    <div class="item-title item-link">关于君诚律盟</div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <footer>
+        <ul class="ui-nav clearfix">
+            <li class="ui-nav-item ">
+                <a href="index.html">
+                    <span class="ui-icon ui-icon-home"></span>
+                    <span class="ui-nav-item-text">君诚律盟</span>
+                </a>
+            </li>
+            <li class="ui-nav-item">
+                <a href="search.html">
+                    <span class="ui-icon ui-icon-search"></span>
+                    <span class="ui-nav-item-text">搜索</span>
+                </a>
+            </li>
+            <li class="ui-nav-item">
+                <a href="find.html">
+                    <span class="ui-icon ui-icon-find">
+                    </span><span class="ui-nav-item-text">发现</span>
+                </a>
+            </li>
+            <li class="ui-nav-item active">
+                <a href="my.html">
+                    <span class="ui-icon ui-icon-user"></span>
+                    <span class="ui-nav-item-text">我的</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/core.js"></script>
+    <script src="//cdn.bootcss.com/vue/1.0.26/vue.min.js"></script>
+    <script src="js/page/my.js"></script>
+
+</body>
+
+</html>

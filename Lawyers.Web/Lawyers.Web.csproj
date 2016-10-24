@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1AC050E1-FE88-42F7-8678-7E39351FAC8A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lawyers.Web</RootNamespace>
+    <AssemblyName>Lawyers.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aliyun.OSS">
+      <HintPath>..\..\..\..\..\..\ValonFrameworkConfig\ReferenceLib\Aliyun.OSS.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Vaolon.Wechat.Framework">
+      <HintPath>..\..\..\bs\Vaolon.Wechat.Framework\bin\Debug\Vaolon.Wechat.Framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="about.html" />
+    <Content Include="Global.asax" />
+    <Content Include="images\face\user.png" />
+    <Content Include="js\page\find.js" />
+    <Content Include="js\page\detail.js" />
+    <Content Include="js\page\my-news.js" />
+    <Content Include="js\page\my-contents.js" />
+    <Content Include="js\page\my-consultation.js" />
+    <Content Include="js\page\search.js" />
+    <Content Include="js\page\my.js" />
+    <Content Include="js\page\laws.js" />
+    <Content Include="laws.html" />
+    <Content Include="js\core.js" />
+    <Content Include="js\page\consultation.js" />
+    <Content Include="js\page\lawdetail.js" />
+    <Content Include="js\page\index.js" />
+    <Content Include="manage\ArticleDetail.aspx" />
+    <Content Include="manage\static\img\pages\icon-selected.png" />
+    <Content Include="manage\static\js\gobal\holder.min.js" />
+    <Content Include="manage\admin.Master" />
+    <Content Include="manage\ConsultationMgmt.aspx" />
+    <Content Include="manage\LawyersDetail.aspx" />
+    <Content Include="manage\LawyersMgmt.aspx" />
+    <Content Include="manage\login.html" />
+    <Content Include="manage\NewsMgmt.aspx" />
+    <Content Include="manage\RoleRightMgmt.aspx" />
+    <Content Include="manage\static\css\font\DXI1ORHCpsQm3Vp6mXoaTfk_vArhqVIZ0nv9q090hN8.woff2" />
+    <Content Include="manage\static\css\font\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="manage\static\css\font\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="manage\static\css\font\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="manage\static\css\font\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="manage\static\css\font\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="manage\static\css\font\fonts\fontawesome-webfont.eot" />
+    <Content Include="manage\static\css\font\fonts\fontawesome-webfont.ttf" />
+    <Content Include="manage\static\css\font\fonts\fontawesome-webfont.woff" />
+    <Content Include="manage\static\css\font\fonts\fontawesome-webfont.woff2" />
+    <Content Include="manage\static\css\font\fonts\FontAwesome.otf" />
+    <Content Include="manage\static\css\font\fonts\Simple-Line-Icons.eot" />
+    <Content Include="manage\static\css\font\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="manage\static\css\font\fonts\Simple-Line-Icons.woff" />
+    <Content Include="manage\static\css\font\k3k702ZOKiLJc3WVjuplzPk_vArhqVIZ0nv9q090hN8.woff2" />
+    <Content Include="manage\static\css\font\MTP_ySUJH_bn48VBG8sNSvk_vArhqVIZ0nv9q090hN8.woff2" />
+    <Content Include="manage\static\css\font\PfybUH-csLekLIU-pU-o7w.woff2" />
+    <Content Include="manage\static\css\font\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="manage\static\css\font\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="manage\static\css\font\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="manage\static\css\gobal\components-md.css" />
+    <Content Include="manage\static\css\gobal\components-md.min.css" />
+    <Content Include="manage\static\css\gobal\components-rounded.css" />
+    <Content Include="manage\static\css\gobal\components-rounded.min.css" />
+    <Content Include="manage\static\css\gobal\components.css" />
+    <Content Include="manage\static\css\gobal\components.min.css" />
+    <Content Include="manage\static\css\gobal\layout.css" />
+    <Content Include="manage\static\css\plugins\wangeditor\fonts\icomoon.eot" />
+    <Content Include="manage\static\css\plugins\wangeditor\fonts\icomoon.ttf" />
+    <Content Include="manage\static\css\plugins\wangeditor\fonts\icomoon.woff" />
+    <Content Include="manage\static\css\plugins\wangeditor\wangEditor.less" />
+    <Content Include="manage\static\img\logo.jpg" />
+    <Content Include="manage\static\js\page\lawyer-detail.js" />
+    <Content Include="manage\static\js\page\consultation.js" />
+    <Content Include="manage\static\js\page\news-list.js" />
+    <Content Include="manage\static\js\page\lawyer-list.js" />
+    <Content Include="manage\static\js\plugins\backstretch\LICENSE-MIT" />
+    <Content Include="manage\static\js\plugins\backstretch\README.md" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\asp.net\file_manager_json.ashx" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\asp.net\upload_json.ashx" />
+    <Content Include="manage\handler\code.ashx" />
+    <Content Include="manage\handler\login.ashx" />
+    <Content Include="manage\handler\logout.ashx" />
+    <Content Include="manage\UserMgmt.aspx" />
+    <Content Include="manage\UserRoleMgmt.aspx" />
+    <Content Include="lawdetail.html" />
+    <Content Include="MP_verify_XhWRiYKsrlDGAMOZ.txt" />
+    <Content Include="my-consultation.html" />
+    <Content Include="my-content.html" />
+    <Content Include="my-news.html" />
+    <Content Include="packages.config" />
+    <Content Include="manage\handler\fileupload.ashx" />
+    <Content Include="jump.ashx" />
+    <Content Include="auth_center.ashx" />
+    <Content Include="api\customerhander.ashx" />
+    <Content Include="testuser.ashx" />
+    <Content Include="manage\handler\imgupload.ashx" />
+    <None Include="Properties\PublishProfiles\juncheng.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\style.css" />
+    <Content Include="detail.html" />
+    <Content Include="find.html" />
+    <Content Include="images\face\18580333447122440.jpg" />
+    <Content Include="images\face\399595006100894460.jpg" />
+    <Content Include="images\face\45797027235772463.jpg" />
+    <Content Include="images\face\692579214190874264.jpg" />
+    <Content Include="images\icon\home-banner.png" />
+    <Content Include="images\icon\i-call.png" />
+    <Content Include="images\icon\i-mark.png" />
+    <Content Include="images\icon\i-qq.png" />
+    <Content Include="images\icon\i-sms.png" />
+    <Content Include="images\icon\i-wexin.png" />
+    <Content Include="images\icon\icon-find-on.png" />
+    <Content Include="images\icon\icon-find.png" />
+    <Content Include="images\icon\icon-home-on.png" />
+    <Content Include="images\icon\icon-home.png" />
+    <Content Include="images\icon\icon-search-on.png" />
+    <Content Include="images\icon\icon-search.png" />
+    <Content Include="images\icon\icon-user-on.png" />
+    <Content Include="images\icon\icon-user.png" />
+    <Content Include="images\icon\search-icon.png" />
+    <Content Include="index.html" />
+    <Content Include="manage\static\css\font\combine-font.css" />
+    <Content Include="manage\static\css\font\font-awesome\css\font-awesome.css" />
+    <Content Include="manage\static\css\font\font-awesome\css\font-awesome.min.css" />
+    <Content Include="manage\static\css\font\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="manage\static\css\font\fonts\fontawesome-webfont.svg" />
+    <Content Include="manage\static\css\font\fonts\Simple-Line-Icons.dev.svg" />
+    <Content Include="manage\static\css\font\fonts\Simple-Line-Icons.svg" />
+    <Content Include="manage\static\css\font\googlefonts.css" />
+    <Content Include="manage\static\css\font\simple-line-icons\fonts\Simple-Line-Icons.dev.svg" />
+    <Content Include="manage\static\css\font\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="manage\static\css\font\simple-line-icons\icons-lte-ie7.js" />
+    <Content Include="manage\static\css\font\simple-line-icons\simple-line-icons.css" />
+    <Content Include="manage\static\css\font\simple-line-icons\simple-line-icons.min.css" />
+    <Content Include="manage\static\css\pages\fileupload.css" />
+    <Content Include="manage\static\css\pages\login-5.css" />
+    <Content Include="manage\static\css\pages\usermgmt.css" />
+    <Content Include="manage\static\css\plugins\datetime\bootstrap-datetimepicker.css" />
+    <Content Include="manage\static\css\plugins\jstree\default-dark\32px.png" />
+    <Content Include="manage\static\css\plugins\jstree\default-dark\40px.png" />
+    <Content Include="manage\static\css\plugins\jstree\default-dark\style.css" />
+    <Content Include="manage\static\css\plugins\jstree\default-dark\style.min.css" />
+    <Content Include="manage\static\css\plugins\jstree\default-dark\throbber.gif" />
+    <Content Include="manage\static\css\plugins\jstree\default\32px.png" />
+    <Content Include="manage\static\css\plugins\jstree\default\32px_line.png" />
+    <Content Include="manage\static\css\plugins\jstree\default\32px_original.png" />
+    <Content Include="manage\static\css\plugins\jstree\default\40px.png" />
+    <Content Include="manage\static\css\plugins\jstree\default\style.css" />
+    <Content Include="manage\static\css\plugins\jstree\default\style.min.css" />
+    <Content Include="manage\static\css\plugins\jstree\default\throbber.gif" />
+    <Content Include="manage\static\css\plugins\wangeditor\fonts\icomoon.svg" />
+    <Content Include="manage\static\css\plugins\wangeditor\wangEditor.css" />
+    <Content Include="manage\static\css\plugins\wangeditor\wangEditor.min.css" />
+    <Content Include="manage\static\css\themes\blue.css" />
+    <Content Include="manage\static\css\themes\blue.min.css" />
+    <Content Include="manage\static\css\themes\darkblue.css" />
+    <Content Include="manage\static\css\themes\darkblue.min.css" />
+    <Content Include="manage\static\css\themes\default.css" />
+    <Content Include="manage\static\css\themes\default.min.css" />
+    <Content Include="manage\static\css\themes\grey.css" />
+    <Content Include="manage\static\css\themes\grey.min.css" />
+    <Content Include="manage\static\css\themes\light.css" />
+    <Content Include="manage\static\css\themes\light.min.css" />
+    <Content Include="manage\static\css\themes\light2.css" />
+    <Content Include="manage\static\css\themes\light2.min.css" />
+    <Content Include="manage\static\img\code.png" />
+    <Content Include="manage\static\img\gobal\remove-icon-small.png" />
+    <Content Include="manage\static\img\layout\accordion-plusminus.png" />
+    <Content Include="manage\static\img\layout\ajax-loading.gif" />
+    <Content Include="manage\static\img\layout\ajax-modal-loading.gif" />
+    <Content Include="manage\static\img\layout\arrow-down.png" />
+    <Content Include="manage\static\img\layout\avatar.png" />
+    <Content Include="manage\static\img\layout\datatable-row-openclose.png" />
+    <Content Include="manage\static\img\layout\hor-menu-red-arrow.png" />
+    <Content Include="manage\static\img\layout\icon-color-close.png" />
+    <Content Include="manage\static\img\layout\icon-color.png" />
+    <Content Include="manage\static\img\layout\icon-img-down.png" />
+    <Content Include="manage\static\img\layout\icon-img-up.png" />
+    <Content Include="manage\static\img\layout\inbox-nav-arrow-blue.png" />
+    <Content Include="manage\static\img\layout\input-spinner.gif" />
+    <Content Include="manage\static\img\layout\loading-spinner-blue.gif" />
+    <Content Include="manage\static\img\layout\loading-spinner-default.gif" />
+    <Content Include="manage\static\img\layout\loading-spinner-grey.gif" />
+    <Content Include="manage\static\img\layout\loading.gif" />
+    <Content Include="manage\static\img\layout\logo-big-white.png" />
+    <Content Include="manage\static\img\layout\logo-big.png" />
+    <Content Include="manage\static\img\layout\logo-invert.png" />
+    <Content Include="manage\static\img\layout\logo.png" />
+    <Content Include="manage\static\img\layout\menu-toggler.png" />
+    <Content Include="manage\static\img\layout\overlay-icon.png" />
+    <Content Include="manage\static\img\layout\photo1.jpg" />
+    <Content Include="manage\static\img\layout\photo2.jpg" />
+    <Content Include="manage\static\img\layout\photo3.jpg" />
+    <Content Include="manage\static\img\layout\portlet-collapse-icon-white.png" />
+    <Content Include="manage\static\img\layout\portlet-collapse-icon.png" />
+    <Content Include="manage\static\img\layout\portlet-config-icon-white.png" />
+    <Content Include="manage\static\img\layout\portlet-config-icon.png" />
+    <Content Include="manage\static\img\layout\portlet-expand-icon-white.png" />
+    <Content Include="manage\static\img\layout\portlet-expand-icon.png" />
+    <Content Include="manage\static\img\layout\portlet-reload-icon-white.png" />
+    <Content Include="manage\static\img\layout\portlet-reload-icon.png" />
+    <Content Include="manage\static\img\layout\portlet-remove-icon-white.png" />
+    <Content Include="manage\static\img\layout\portlet-remove-icon.png" />
+    <Content Include="manage\static\img\layout\remove-icon-small.png" />
+    <Content Include="manage\static\img\layout\search_icon_light.png" />
+    <Content Include="manage\static\img\layout\sidebar-menu-arrow-reverse.png" />
+    <Content Include="manage\static\img\layout\sidebar-menu-arrow-right.png" />
+    <Content Include="manage\static\img\layout\sidebar-menu-arrow.png" />
+    <Content Include="manage\static\img\layout\sidebar_arrow_icon_light.png" />
+    <Content Include="manage\static\img\layout\sidebar_arrow_icon_light_rtl.png" />
+    <Content Include="manage\static\img\layout\sidebar_inline_toggler_icon_blue.jpg" />
+    <Content Include="manage\static\img\layout\sidebar_inline_toggler_icon_darkblue.jpg" />
+    <Content Include="manage\static\img\layout\sidebar_inline_toggler_icon_default.jpg" />
+    <Content Include="manage\static\img\layout\sidebar_inline_toggler_icon_grey.jpg" />
+    <Content Include="manage\static\img\layout\sidebar_inline_toggler_icon_light.jpg" />
+    <Content Include="manage\static\img\layout\sidebar_inline_toggler_icon_light2.jpg" />
+    <Content Include="manage\static\img\layout\sidebar_toggler_icon_blue.png" />
+    <Content Include="manage\static\img\layout\sidebar_toggler_icon_darkblue.png" />
+    <Content Include="manage\static\img\layout\sidebar_toggler_icon_default.png" />
+    <Content Include="manage\static\img\layout\sidebar_toggler_icon_grey.png" />
+    <Content Include="manage\static\img\layout\sidebar_toggler_icon_light.png" />
+    <Content Include="manage\static\img\layout\sidebar_toggler_icon_light2.png" />
+    <Content Include="manage\static\img\layout\syncfusion-icons-white.png" />
+    <Content Include="manage\static\img\layout\syncfusion-icons.png" />
+    <Content Include="manage\static\img\pages\user\portlet-reload-icon.png" />
+    <Content Include="manage\static\img\user.png" />
+    <Content Include="manage\static\js\gobal\app.js" />
+    <Content Include="manage\static\js\gobal\app.min.js" />
+    <Content Include="manage\static\js\gobal\core.js" />
+    <Content Include="manage\static\js\gobal\pcd-data.js" />
+    <Content Include="manage\static\js\gobal\require.js" />
+    <Content Include="manage\static\js\gobal\vue.js" />
+    <Content Include="manage\static\js\layout\demo.js" />
+    <Content Include="manage\static\js\layout\demo.min.js" />
+    <Content Include="manage\static\js\gobal\layout.js" />
+    <Content Include="manage\static\js\layout\layout.min.js" />
+    <Content Include="manage\static\js\layout\quick-sidebar.js" />
+    <Content Include="manage\static\js\layout\quick-sidebar.min.js" />
+    <Content Include="manage\static\js\page\login-5.js" />
+    <Content Include="manage\static\js\page\article-detail.js" />
+    <Content Include="manage\static\js\page\role-right.js" />
+    <Content Include="manage\static\js\page\user-detail.js" />
+    <Content Include="manage\static\js\page\user-list.js" />
+    <Content Include="manage\static\js\page\user-role.js" />
+    <Content Include="manage\static\js\page\welcome.js" />
+    <Content Include="manage\static\js\plugins\backstretch\jquery.backstretch.js" />
+    <Content Include="manage\static\js\plugins\backstretch\jquery.backstretch.min.js" />
+    <Content Include="manage\static\js\plugins\bootstrap-wysiwyg.js" />
+    <Content Include="manage\static\js\plugins\bootstrap\bootstrap.js" />
+    <Content Include="manage\static\js\plugins\bootstrap\bootstrap.min.js" />
+    <Content Include="manage\static\js\plugins\datatable.js" />
+    <Content Include="manage\static\js\plugins\datetime\bootstrap-datetimepicker.js" />
+    <Content Include="manage\static\js\plugins\dropzone.js" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\css\ion.rangeSlider.css" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\css\ion.rangeSlider.Metronic.css" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\css\ion.rangeSlider.skinFlat.css" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\css\ion.rangeSlider.skinHTML5.css" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\css\ion.rangeSlider.skinModern.css" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\css\ion.rangeSlider.skinNice.css" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\css\ion.rangeSlider.skinSimple.css" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\css\normalize.css" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\img\sprite-skin-flat.png" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\img\sprite-skin-modern.png" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\img\sprite-skin-nice.png" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\img\sprite-skin-simple.png" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\js\ion.rangeSlider.js" />
+    <Content Include="manage\static\js\plugins\ion.rangeslider\js\ion.rangeSlider.min.js" />
+    <Content Include="manage\static\js\plugins\jquery.hotkeys.js" />
+    <Content Include="manage\static\js\plugins\jquery\jquery.min.js" />
+    <Content Include="manage\static\js\plugins\jstree\dist\jstree.js" />
+    <Content Include="manage\static\js\plugins\jstree\dist\jstree.min.js" />
+    <Content Include="manage\static\js\plugins\jstree\dist\themes\default-dark\32px.png" />
+    <Content Include="manage\static\js\plugins\jstree\dist\themes\default-dark\40px.png" />
+    <Content Include="manage\static\js\plugins\jstree\dist\themes\default-dark\style.css" />
+    <Content Include="manage\static\js\plugins\jstree\dist\themes\default-dark\style.min.css" />
+    <Content Include="manage\static\js\plugins\jstree\dist\themes\default-dark\throbber.gif" />
+    <Content Include="manage\static\js\plugins\jstree\dist\themes\default\32px.png" />
+    <Content Include="manage\static\js\plugins\jstree\dist\themes\default\32px_line.png" />
+    <Content Include="manage\static\js\plugins\jstree\dist\themes\default\32px_original.png" />
+    <Content Include="manage\static\js\plugins\jstree\dist\themes\default\40px.png" />
+    <Content Include="manage\static\js\plugins\jstree\dist\themes\default\style.css" />
+    <Content Include="manage\static\js\plugins\jstree\dist\themes\default\style.min.css" />
+    <Content Include="manage\static\js\plugins\jstree\dist\themes\default\throbber.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\asp.net\demo.aspx" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\asp.net\README.txt" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\kindeditor-all - 复制.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\kindeditor-all-min.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\kindeditor-all.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\lang\en.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\lang\zh-CN.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\baidumap\baidumap.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\baidumap\index.html" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\baidumap\map.html" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\filemanager\filemanager.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\filemanager\images\file-16.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\filemanager\images\file-64.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\filemanager\images\folder-16.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\filemanager\images\folder-64.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\filemanager\images\go-up.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\image\image.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\image\images\align_left.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\image\images\align_right.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\image\images\align_top.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\image\images\refresh.png" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\preview\preview.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\plugins\table\table.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\ajax.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\cmd.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\colorpicker.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\config.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\core.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\dialog.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\edit.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\event.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\footer.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\header.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\html.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\main.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\menu.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\node.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\range.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\selector.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\tabs.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\toolbar.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\uploadbutton.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\src\widget.js" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\themes\common\anchor.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\themes\common\blank.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\themes\common\flash.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\themes\common\loading.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\themes\common\media.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\themes\common\rm.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\themes\default\background.png" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\themes\default\default.css" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\themes\default\default.png" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\themes\qq\editor.gif" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\themes\qq\qq.css" />
+    <Content Include="manage\static\js\plugins\kindeditor-master\themes\simple\simple.css" />
+    <Content Include="manage\static\js\plugins\wangeditor\wangEditor.js" />
+    <Content Include="manage\static\js\plugins\wangeditor\wangEditor.min.js" />
+    <Content Include="message.html" />
+    <Content Include="my.html" />
+    <Content Include="search.html" />
+    <Content Include="TextFile1.txt" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="api\App_Start\WebApiConfig.cs" />
+    <Compile Include="api\Controllers\ArticleController.cs" />
+    <Compile Include="api\Controllers\MaterialController.cs" />
+    <Compile Include="api\Controllers\ConsultationController.cs" />
+    <Compile Include="api\Controllers\UserController.cs" />
+    <Compile Include="api\Controllers\CustomerController.cs" />
+    <Compile Include="api\Controllers\RoleRightController.cs" />
+    <Compile Include="api\Controllers\SMSController.cs" />
+    <Compile Include="api\Controllers\ValidaQueryString.cs" />
+    <Compile Include="api\customerhander.ashx.cs">
+      <DependentUpon>customerhander.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="auth_center.ashx.cs">
+      <DependentUpon>auth_center.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="jump.ashx.cs">
+      <DependentUpon>jump.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\admin.Master.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\admin.Master.designer.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="manage\ArticleDetail.aspx.cs">
+      <DependentUpon>ArticleDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\ArticleDetail.aspx.designer.cs">
+      <DependentUpon>ArticleDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\ConsultationMgmt.aspx.cs">
+      <DependentUpon>ConsultationMgmt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\ConsultationMgmt.aspx.designer.cs">
+      <DependentUpon>ConsultationMgmt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\handler\code.ashx.cs">
+      <DependentUpon>code.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\handler\fileupload.ashx.cs">
+      <DependentUpon>fileupload.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\handler\imgupload.ashx.cs">
+      <DependentUpon>imgupload.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\handler\login.ashx.cs">
+      <DependentUpon>login.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\handler\logout.ashx.cs">
+      <DependentUpon>logout.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\LawyersDetail.aspx.cs">
+      <DependentUpon>LawyersDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\LawyersDetail.aspx.designer.cs">
+      <DependentUpon>LawyersDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\LawyersMgmt.aspx.cs">
+      <DependentUpon>LawyersMgmt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\LawyersMgmt.aspx.designer.cs">
+      <DependentUpon>LawyersMgmt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\NewsMgmt.aspx.cs">
+      <DependentUpon>NewsMgmt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\NewsMgmt.aspx.designer.cs">
+      <DependentUpon>NewsMgmt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\RoleRightMgmt.aspx.cs">
+      <DependentUpon>RoleRightMgmt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\RoleRightMgmt.aspx.designer.cs">
+      <DependentUpon>RoleRightMgmt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\UserMgmt.aspx.cs">
+      <DependentUpon>UserMgmt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\UserMgmt.aspx.designer.cs">
+      <DependentUpon>UserMgmt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\UserRoleMgmt.aspx.cs">
+      <DependentUpon>UserRoleMgmt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\UserRoleMgmt.aspx.designer.cs">
+      <DependentUpon>UserRoleMgmt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="testuser.ashx.cs">
+      <DependentUpon>testuser.ashx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="manage\static\img\pages\login\" />
+    <Folder Include="manage\static\img\plugins\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lawyers.BizEntities\Lawyers.BizEntities.csproj">
+      <Project>{56a6a022-abeb-4efa-8104-6f885aba8040}</Project>
+      <Name>Lawyers.BizEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lawyers.BizProcess\Lawyers.BizProcess.csproj">
+      <Project>{4c51526a-a57c-474a-bf58-a86655b8f8cd}</Project>
+      <Name>Lawyers.BizProcess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lawyers.Utilities\Lawyers.Utilities.csproj">
+      <Project>{1fb1e995-e2e8-49f4-98aa-1c0d2e25583a}</Project>
+      <Name>Lawyers.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58503</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/law</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/law</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

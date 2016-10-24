@@ -1,0 +1,266 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="Lawyers.Web.manage.admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="static/css/font/combine-font.css" rel="stylesheet" />
+    <link href="http://juncheng.oss-cn-shanghai.aliyuncs.com/css/components-md.css" rel="stylesheet" />
+    <link href="http://juncheng.oss-cn-shanghai.aliyuncs.com/css/layout.css" rel="stylesheet" />
+    <link href="http://juncheng.oss-cn-shanghai.aliyuncs.com/css/darkblue.min.css" rel="stylesheet" id="style_color" />
+
+</head>
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-md">
+
+    <div class="page-header navbar navbar-fixed-top">
+
+        <div class="page-header-inner ">
+
+            <div class="page-logo">
+                <a href="index.html">君诚律盟
+                   <%-- <img src="static/img/layout/logo.png" alt="logo" class="logo-default" />--%>
+                </a>
+                <div class="menu-toggler sidebar-toggler"></div>
+            </div>
+
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"></a>
+
+            <div class="top-menu">
+                <ul class="nav navbar-nav pull-right">
+
+                    <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <i class="icon-envelope-open"></i>
+                            <%--<span class="badge badge-default">7 </span>--%>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="external">还没有消息
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-user">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <img alt="" class="img-circle" src="<%=String.IsNullOrEmpty(UserData.Face)?"static/img/user.png":UserData.Face %>" />
+                            <span class="username username-hide-on-mobile"><%=UserData.NickName %> </span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <%--                            <li>
+                                <a href="page_user_profile_1.html">
+                                    <i class="icon-user"></i>个人资料
+                                </a>
+                            </li>
+                            <li>
+                                <a href="app_inbox.html">
+                                    <i class="icon-envelope-open"></i>我的消息
+                                    <span class="badge badge-danger">3 </span>
+                                </a>
+                            </li>--%>
+                            <%--      <li class="divider"></li>
+                            <li>
+                                <a href="page_user_lock_1.html">
+                                    <i class="icon-lock"></i>锁屏
+                                </a>
+                            </li>--%>
+                            <li>
+                                <a href="handler/logout.ashx">
+                                    <i class="icon-key"></i>退出
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="page-container">
+
+        <div class="page-sidebar-wrapper">
+
+            <div class="page-sidebar navbar-collapse collapse">
+
+                <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+
+                    <li class="sidebar-toggler-wrapper hide">
+
+                        <div class="sidebar-toggler"></div>
+
+                    </li>
+                    <%
+                        var menus = MenuDatas;
+                        var navArr = new List<string>();
+                        var currentMenu = menus.FirstOrDefault();
+                        foreach (var menu in menus)
+                        {
+                    %>
+                    <li class="heading">
+                        <h3 class="uppercase"><%=menu.MName %></h3>
+                    </li>
+                    <%
+
+                        foreach (var menuItem in menu.Items)
+                        {
+                            string levelUrl2 = "javascript:;";
+                            var treeItem = menuItem.Items;
+                            bool isopen = false;
+                            if (menuItem.MType == 2)
+                            {
+                                levelUrl2 = menuItem.Url;
+                                if (ReferUrl.Contains(levelUrl2))
+                                {
+                                    currentMenu = menuItem;
+                                    navArr.Add(menu.MName);
+                                    isopen = true;
+                                }
+                            }
+                            else
+                            {
+
+                                var currMenu = treeItem.FirstOrDefault(c => c.MType == 2 && ReferUrl.Contains(c.Url));
+                                if (currMenu != null)
+                                {
+                                    currentMenu = currMenu;
+                                    navArr.Add(menu.MName);
+                                    navArr.Add(menuItem.MName);
+                                    isopen = true;
+                                }
+
+                            }
+
+                            if (menuItem.IsShow == false)
+                            {
+                                continue;
+                            }
+
+                    %>
+                    <li class="nav-item <%=(isopen?"active open":"") %>">
+                        <a href="<%=levelUrl2 %>" class="nav-link nav-toggle">
+                            <i class="<%=menuItem.MIcon %>"></i>
+                            <%=(isopen?"<span class=\"selected\"></span>":"") %>
+                            <span class="title"><%=menuItem.MName %></span>
+                            <%--<span class="arrow <%=(isopen?"open":"") %>"></span>--%>
+                        </a>
+                        <%
+                            if (treeItem.Count > 0)
+                            {
+                        %>
+                        <ul class="sub-menu <%=(isopen?"active open":"") %>">
+                            <%
+                                foreach (var mItem in treeItem)
+                                {
+                            %>
+                            <li class="nav-item <%=(ReferUrl.Contains(mItem.Url)?"active open":"") %>">
+                                <a href="<%=mItem.Url %>" class="nav-link ">
+                                    <i class="<%=mItem.MIcon %>"></i>
+                                    <span class="title"><%=mItem.MName %></span>
+                                </a>
+                            </li>
+                            <%
+                                }
+                            %>
+                        </ul>
+                        <%
+                            }//if
+                        %>
+                    </li>
+
+                    <%
+                            }//2
+                        }
+                    %>
+                </ul>
+                <!-- END SIDEBAR MENU -->
+                <!-- END SIDEBAR MENU -->
+            </div>
+            <!-- END SIDEBAR -->
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <div class="page-content">
+                <!-- BEGIN PAGE HEADER-->
+                <!-- BEGIN PAGE BAR -->
+                <div class="page-bar">
+                    <ul class="page-breadcrumb">
+                        <%
+
+                            foreach (var navBar in navArr)
+                            {
+                        %>
+                        <li>
+                            <a href="javascript:;"><%=navBar %></a>
+                            <i class="fa fa-circle"></i>
+                        </li>
+
+                        <%
+                            }
+                        %>
+
+
+                        <li>
+                            <span><%=currentMenu.MName %></span>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- END PAGE BAR -->
+                <!-- BEGIN PAGE TITLE-->
+                <h3 class="page-title"><%=currentMenu.MName %>
+                    <small><%=currentMenu.MDesc %></small>
+                </h3>
+
+                <div>
+                    <asp:ContentPlaceHolder ID="CPHContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="page-footer">
+        <div class="page-footer-inner">
+            2016 &copy; 君诚律盟
+            <a href="#" title="君诚律盟" target="_blank">君诚律盟</a>
+        </div>
+        <div class="scroll-to-top">
+            <i class="icon-arrow-up"></i>
+        </div>
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/vue/1.0.24/vue.js"></script>
+    <script src="static/js/gobal/layout.js"></script>
+
+    <script>
+        var uinfo = '<%=UInfo%>';
+        var defaultFace = "static/img/user.png";
+        function rednerRightKey(extendKey) {
+            if (extendKey != null) {
+                //var $rightKey = $("[data-rightkey]");
+                for (var i in extendKey) {
+                    $("[data-rightkey='" + extendKey[i] + "']").removeAttr("data-rightkey");
+                }
+                $("[data-rightkey]").remove();
+            }
+        }
+
+        rednerRightKey(<%=RightKeys%>);
+    </script>
+    <asp:ContentPlaceHolder ID="JSContent" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

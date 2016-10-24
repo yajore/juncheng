@@ -1,0 +1,120 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="email=no" name="format-detection" />
+    <link type="text/css" rel="stylesheet" href="css/style.css?ver=20161006" />
+    <title>搜索-君诚律盟</title>
+</head>
+
+<body id="page-search">
+
+    <header>
+
+        <form class="" v-on:submit.prevent="search()">
+            <input class="input-search" placeholder="王超" type="search"
+                   v-model="keyword" />
+        </form>
+    </header>
+
+    <div class="section-75 mb-96">
+        <div class="title-normal">
+            <h3>
+                <span class="title-circle"></span>
+                新闻
+            </h3>
+        </div>
+        <div class="news-list bb-5">
+
+            <template v-for="item in articles">
+                <div class="item">
+                    <div class="content">
+                      {{item.Title}}
+                    </div>
+                    <a href="#" v-bind:href="'detail.html?id='+item.ID">查看全部></a>
+                </div>
+            </template>
+
+        </div>
+        <div class="title-normal">
+            <h3>
+                <span class="title-circle"></span>
+                律师
+            </h3>
+            <template v-for="item in lawyers">
+                <div class="group-item-b">
+                    <img src="images/face/user.png" class="group-face" 
+                         v-bind:src="item.Face"/>
+                    <div class="group-text">
+                        <ol>
+                            <li class="name">
+                                <span class="ol"></span>
+                                {{item.Name}}
+                            </li>
+                            <li class="name mt-2 ">
+                                <span class="ol"></span>
+                                擅长领域
+                            </li>
+                            <li class="desc">
+                                {{item.Skills}}
+                            </li>
+                            <li class="name mt-2 ">
+                                <span class="ol"></span>
+                                案例简介
+                            </li>
+                            <li class="desc wrap">
+                                {{item.CaseSeries}}
+                            </li>
+                            <li class="desc">
+                                <a href="#" v-bind:href="'detail.html?id='+item.ArtID">查看全部></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </template>
+            
+        </div>
+
+    </div>
+    <footer>
+        <ul class="ui-nav clearfix">
+            <li class="ui-nav-item ">
+                <a href="index.html">
+                    <span class="ui-icon ui-icon-home"></span>
+                    <span class="ui-nav-item-text">君诚律盟</span>
+                </a>
+            </li>
+            <li class="ui-nav-item active">
+                <a href="search.html">
+                    <span class="ui-icon ui-icon-search"></span>
+                    <span class="ui-nav-item-text">搜索</span>
+                </a>
+            </li>
+            <li class="ui-nav-item">
+                <a href="find.html">
+                    <span class="ui-icon ui-icon-find"></span>
+                    <span class="ui-nav-item-text">发现</span>
+                </a>
+            </li>
+            <li class="ui-nav-item">
+                <a href="my.html">
+                    <span class="ui-icon ui-icon-user"></span>
+                    <span class="ui-nav-item-text">我的</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/core.js"></script>
+    <script src="//cdn.bootcss.com/vue/1.0.26/vue.min.js"></script>
+    <script src="js/page/search.js"></script>
+
+</body>
+
+</html>
