@@ -75,6 +75,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="about.html" />
+    <Content Include="css\process.css" />
+    <Content Include="css\process.html" />
     <Content Include="Global.asax" />
     <Content Include="images\face\user.png" />
     <Content Include="js\page\find.js" />

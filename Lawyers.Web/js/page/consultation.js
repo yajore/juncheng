@@ -100,7 +100,7 @@ function consultation() {
             }
 
             _item.CustomerFace = instance.user.Face;
-            alert(JSON.stringify(_item));
+
             var req = gobal.QueryJson();
             req.Body = _item;
             var reqData = {
@@ -108,6 +108,9 @@ function consultation() {
                 callback: function (result) {
                     if (result.ErrCode == 0) {
                         gobal.toast("留言成功,请耐心等待回复");
+                        setTimeout(function () {
+                            history.go(-1);
+                        }, 2000)
                     } else {
                         gobal.toast(result.Message, 2);
                     }
@@ -130,7 +133,7 @@ function consultation() {
                 data: req,
                 callback: function (result) {
                     if (result.ErrCode == 0) {
-                        
+
                         var s = 60;
                         var clearid = setInterval(function () {
                             vm.stoping = true;
