@@ -97,7 +97,7 @@ function index() {
             var ajaxjson = {};
             ajaxjson.url = "api/customer/lawyers"
             ajaxjson.data = _data.data;
-            ajaxjson.data.PageInfo.PageSize = 4;
+            ajaxjson.data.PageInfo.PageSize = 8;
             ajaxjson.data.PageInfo.SortField = "B.SortNo"
             ajaxjson.data.PageInfo.SortType = "ASC"
 

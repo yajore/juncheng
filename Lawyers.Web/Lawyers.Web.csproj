@@ -148,6 +148,7 @@
     <Content Include="manage\UserMgmt.aspx" />
     <Content Include="manage\UserRoleMgmt.aspx" />
     <Content Include="lawdetail.html" />
+    <Content Include="map.html" />
     <Content Include="MP_verify_XhWRiYKsrlDGAMOZ.txt" />
     <Content Include="my-consultation.html" />
     <Content Include="my-content.html" />
