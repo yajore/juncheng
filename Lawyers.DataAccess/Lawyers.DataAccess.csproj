@@ -46,7 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DAL\Material\MaterialDA.cs" />
     <Compile Include="DAL\Article\ArticleDA.cs" />
     <Compile Include="DAL\Consultation\ConsultationDA.cs" />

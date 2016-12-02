@@ -9,27 +9,29 @@
     <link type="text/css" rel="stylesheet" href="css/style.css?ver=20161111" />
     <title>我的留言-君诚律盟</title>
 </head>
-<body id="page-my-contents" v-cloak>
-    <p class="summary">留言手机:{{item.Mobile}}</p>
-    <p class="summary">留言时间:{{getLongDate(item.InDate)}}</p>
-    <p class="summary">
-        咨询律师:{{item.LawyerName}}
-        <a href="#" v-bind:href="'lawdetail.html?id='+item.ToLawyer">再次咨询</a>
-        <a href="#" v-bind:href="'tel:'+item.LawyerMobile">直接联系TA</a>
-    </p>
-    <div class="summary">
-        留言内容:
-        <p class="mt-2">{{item.Contents}}</p>
-    </div>
+<body id="page-my-consultation" class="bg-ef">
+    <div class="list-block">
+        <ul>
+            <template v-for="item in items">
+                <li>
+                    <div class="item-content item-link" v-on:click.prevent="go(item)">
+                        <div class="item-stitle ">
+                            咨询律师:{{item.LawyerName}}
+                            <span class="item-date">{{getLongDate(item.InDate)}}</span>
+                        </div>
+                        <div class="item-desc">{{item.Contents}}</div>
+                    </div>
+                </li>
+            </template>
 
-    <div class="summary bt-5">
-        回复内容:
-        <p class="mt-2">{{item.ConStatus!=10?'还未回复':item.ReplyContent}}</p>
+           
+        </ul>
     </div>
 
     <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="js/core.js"></script>
     <script src="//cdn.bootcss.com/vue/1.0.26/vue.min.js"></script>
-    <script src="js/page/my-contents.js"></script>
+    <script src="js/page/my-consultation.js"></script>
+
 </body>
 </html>

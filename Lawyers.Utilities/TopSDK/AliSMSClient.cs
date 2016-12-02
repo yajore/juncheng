@@ -14,7 +14,8 @@ namespace Lawyers.Utilities
         static string sms_secret = ConfigurationManager.AppSettings["sms_secret"];
         static string sms_sign = ConfigurationManager.AppSettings["sms_sign"];
         static Dictionary<int, string> sms_template = new Dictionary<int, string> {
-            {1,"SMS_21695196" }
+            {1,"SMS_21695196" },
+            {2,"SMS_25650738" }
         };
 
         public static string Send(string mobiles, string param, int smstypeid)

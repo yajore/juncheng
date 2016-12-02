@@ -22,6 +22,7 @@ function consultation() {
                 item: { ToLawyer: tolaw, Lawyer: law, Contents: "", Mobile: "", Code: "" },
                 codeText: "获取验证码",
                 stoping: false,
+
             },
             computed: {
             },

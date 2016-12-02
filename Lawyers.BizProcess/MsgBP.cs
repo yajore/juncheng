@@ -118,5 +118,53 @@ namespace Lawyers.BizProcess
             return result;
         }
 
+        public OperationResult SendNotify(RequestOperation<ReqMsgData> request)
+        {
+            var result = new OperationResult();
+
+            try
+            {
+
+
+                string param = "{\"name\":\"" + request.Body.Mobile + "\"}";
+                var req = new RequestOperation<MsgData>();
+                req.Header = request.Header;
+                req.Body = new MsgData();
+                req.Body.MsgParam = param;
+                req.Body.MsgStatus = 1;
+                req.Body.MsgType = request.Body.MsgType;
+                req.Body.ExpireTime = DateTime.Now.AddMinutes(10);
+                req.Body.Receiver = request.Body.Mobile;
+
+                int row = MsgDA.AddNewMsg(req);
+                if (row == 1)
+                {
+
+                    string sendResult = AliSMSClient.Send(request.Body.Mobile, param, request.Body.MsgType);
+                    if (sendResult.StartsWith("0,"))
+                    {
+                        result.ErrCode = 0;
+                    }
+                    else
+                    {
+                        result.ErrCode = 1;
+                        result.Message = sendResult.Split(',')[1];
+                    }
+                    result.ErrCode = 0;
+                    //result.Message = msgCode;
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteException("SendMsg", ex, request);
+                result.ErrCode = -1;
+                result.Message = ex.Message;
+            }
+
+            return result;
+        }
+
+
     }
 }

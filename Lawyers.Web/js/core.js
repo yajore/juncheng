@@ -275,6 +275,13 @@
         }
         return fmt;
     },
+    getDomian: function () {
+        if (location.href.indexOf("jc.webui.info") > -1) {
+            return "http://jc.webui.info/";
+        } else {
+            return "http://mango.webui.info/law/";
+        }
+    },
     initAjax: function () {
 
 

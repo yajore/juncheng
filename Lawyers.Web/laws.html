@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta content="email=no" name="format-detection" />
-    <link type="text/css" rel="stylesheet" href="css/style.css?ver=20161006" />
+    <link type="text/css" rel="stylesheet" href="css/style.css?ver=20161111" />
     <title>律师团队-君诚律盟</title>
 </head>
 
@@ -18,9 +18,9 @@
     </div>
     <div class="group mb-96 clearfix" v-cloak>
         <template v-for="item in items">
-            <div class="group-item" v-on:click.prevent="go(item.UserID)">
-                <img  class="group-face" 
-                     v-bind:data-oxlazy-img="item.Face"/>
+            <div class="group-item lg" v-on:click.prevent="go(item.UserID)">
+                <img class="group-face"
+                     v-bind:data-oxlazy-img="item.Face" />
                 <div class="group-text">
                     <ol>
                         <li class="name">
@@ -31,12 +31,13 @@
                             <span class="ol"></span>
                             擅长领域
                         </li>
-                        <template v-for="son in item.Skills.split(',')">
-                            <li class="desc">
-                                {{son}}
-                            </li>
-                        </template>
-                      
+                        <li class="desc">
+                            <template v-for="son in item.Skills.split(',')">
+
+                                <span> {{son}} </span>
+
+                            </template>
+                        </li>
                     </ol>
                 </div>
             </div>

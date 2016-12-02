@@ -77,8 +77,10 @@
     <Content Include="about.html" />
     <Content Include="css\process.css" />
     <Content Include="css\process.html" />
+    <Content Include="demo.html" />
     <Content Include="Global.asax" />
     <Content Include="images\face\user.png" />
+    <Content Include="images\slogo.jpg" />
     <Content Include="js\page\find.js" />
     <Content Include="js\page\detail.js" />
     <Content Include="js\page\my-news.js" />
@@ -150,6 +152,7 @@
     <Content Include="lawdetail.html" />
     <Content Include="map.html" />
     <Content Include="MP_verify_XhWRiYKsrlDGAMOZ.txt" />
+    <Content Include="my-reply.html" />
     <Content Include="my-consultation.html" />
     <Content Include="my-content.html" />
     <Content Include="my-news.html" />
@@ -161,6 +164,7 @@
     <Content Include="testuser.ashx" />
     <Content Include="manage\handler\imgupload.ashx" />
     <None Include="Properties\PublishProfiles\juncheng.pubxml" />
+    <Content Include="qrcode.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -518,6 +522,9 @@
       <DependentUpon>UserRoleMgmt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="qrcode.ashx.cs">
+      <DependentUpon>qrcode.ashx</DependentUpon>
+    </Compile>
     <Compile Include="testuser.ashx.cs">
       <DependentUpon>testuser.ashx</DependentUpon>
     </Compile>
@@ -534,6 +541,10 @@
     <ProjectReference Include="..\Lawyers.BizProcess\Lawyers.BizProcess.csproj">
       <Project>{4c51526a-a57c-474a-bf58-a86655b8f8cd}</Project>
       <Name>Lawyers.BizProcess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lawyers.DataAccess\Lawyers.DataAccess.csproj">
+      <Project>{33658130-7f17-4787-913a-162610c8f959}</Project>
+      <Name>Lawyers.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Lawyers.Utilities\Lawyers.Utilities.csproj">
       <Project>{1fb1e995-e2e8-49f4-98aa-1c0d2e25583a}</Project>

@@ -43,6 +43,15 @@ namespace Lawyers.BizEntities
 
         [DataMapping("CustomerName", DbType.String)]
         public string CustomerName { get; set; }
+        
+        [DataMapping("Reply", DbType.String)]
+        public string Reply { get; set; }
+
+        [DataMapping("ReplyContent", DbType.String)]
+        public string ReplyContent { get; set; }
+
+        [DataMapping("LawyerMobile", DbType.String)]
+        public string LawyerMobile { get; set; }
 
     }
 

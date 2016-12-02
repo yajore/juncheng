@@ -133,5 +133,57 @@ namespace Lawyers.Web.Controllers
             return result;
         }
 
+        [HttpPost]
+        public OperationResult SetReply([FromBody]string queryString)
+        {
+            var result = new OperationResult();
+
+            var request = JsonHelper.Build<RequestOperation<ConsultationReplyData>>(queryString);
+
+            if (request == null)
+            {
+                result.Message = "请求参数为NULL";
+                return result;
+            }
+
+            var verify = ValidaQueryString.Valida(request.Header);
+
+            if (verify.ErrCode != 0)
+            {
+                result.ErrCode = verify.ErrCode;
+                result.Message = verify.Message;
+                return result;
+
+            }
+            result = new ConsultationBP().SetReply(request);
+            return result;
+        }
+
+        [HttpPost]
+        public OperationResult<ConsultationShowData> GetReplyById([FromBody]string queryString)
+        {
+            var result = new OperationResult<ConsultationShowData>();
+
+            var request = JsonHelper.Build<QueryRequest<int>>(queryString);
+
+            if (request == null)
+            {
+                result.Message = "请求参数为NULL";
+                return result;
+            }
+
+            var verify = ValidaQueryString.Valida(request.Header);
+
+            if (verify.ErrCode != 0)
+            {
+                result.ErrCode = verify.ErrCode;
+                result.Message = verify.Message;
+                return result;
+
+            }
+            result = new ConsultationBP().GetReplyById(request);
+            return result;
+        }
+
     }
 }

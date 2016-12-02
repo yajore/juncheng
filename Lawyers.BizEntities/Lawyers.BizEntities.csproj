@@ -53,8 +53,10 @@
     <Compile Include="Article\ArticleStatusData.cs" />
     <Compile Include="Article\SearchResultData.cs" />
     <Compile Include="BaseData.cs" />
+    <Compile Include="Consultation\ConsultationReplyData.cs" />
     <Compile Include="Consultation\ConsultationData.cs" />
     <Compile Include="Consultation\ConsultationQueryData.cs" />
+    <Compile Include="Consultation\ConsultationUserData.cs" />
     <Compile Include="Customer\CustomerAccountQueryData.cs" />
     <Compile Include="Customer\CustomerData.cs" />
     <Compile Include="Customer\CustomerFieldData.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="RoleRight\UserRoleData.cs" />
     <Compile Include="RoleRight\UserRoleQueryData.cs" />
     <Compile Include="RoleRight\UserRoleUpdateData.cs" />
+    <Compile Include="Wechat\TemplatePropertyData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta content="email=no" name="format-detection" />
-    <link type="text/css" rel="stylesheet" href="css/style.css?ver=20161006" />
+    <link type="text/css" rel="stylesheet" href="css/style.css?ver=20161111" />
     <title>地图测试</title>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ko62rsl5s6C8799YqlGpG2sI"></script>
     <style>
@@ -85,7 +85,12 @@
             marker.setLabel(label);
 
             marker.addEventListener("click", function (e) {
-                alert("您点击了标注");
+
+                var p = marker.getPosition();       //获取marker的位置
+                alert("marker的位置是" + p.lng + "," + p.lat);
+
+                //alert(e.point.lng + "," + e.point.lat);
+ 
             });
 
         }

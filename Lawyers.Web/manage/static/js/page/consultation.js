@@ -12,7 +12,9 @@ function consultation() {
             el: '#page-lawyerlist',
             data: {
                 query: { LawyerName: '', ConStatus: 0, Mobile: '' },
-                items: []
+                items: [],
+                reply: { ReplyContent: "", _index: 0 },
+                liveMessage: '',
 
             },
             computed: {
@@ -20,6 +22,7 @@ function consultation() {
             methods: {
 
                 search: function () {
+
                     delayInit();
                 },
                 getStatus: function (status) {
@@ -34,24 +37,25 @@ function consultation() {
                 getDefaultFace: function (face) {
                     return (face == null || (face + "").length == 0) ? defaultFace : face;
                 },
-                audit: function (item, auditStatus) {
-                    if (item.AuditStatus == auditStatus) {
-                        util.toast("当前用户状态无需此操作");
-                        return false;
-                    }
-                    var auditData = {};
-                    auditData.data = instance.reqData;
-                    auditData.data.Body = { Sysno: item.Sysno, ConStatus: auditStatus };
-                    auditData.callback = function (result) {
-                        if (result.ErrCode == 0) {
-                            item.ConStatus = auditStatus;
-                            util.toast("处理成功.", "success");
-                        } else {
-                            util.toast(result.Message);
-                        }
+                showModal: function (item, _index) {
+                    $('#modal-reply').modal();
+                    setTimeout(function () { $("#txtReply").focus() }, 500);
+                    VUE.reply._index = _index;
+                    VUE.reply.ConsultationID = item.Sysno;
+                    this.liveMessage = item.Contents;
+                },
+                save: function () {
+                    if (confirm('确定要回复用户此内容吗?')) {
+                        reply();
                     }
 
-                    instance.methods.reqService.setconsultationstatus(auditData);
+                },
+                getRows: function () {
+                    var rows = parseInt(this.liveMessage.length / 60) + this.liveMessage.split('\n').length;
+                    if (rows > 15) {
+                        rows = 15;
+                    }
+                    return rows;
                 }
             }
         });
@@ -87,6 +91,24 @@ function consultation() {
 
         setTimeout(delayInit);
 
+        function reply() {
+            var replyData = {};
+            replyData.data = instance.reqData;
+            replyData.data.Body = VUE.reply;
+            replyData.callback = function (result) {
+                if (result.ErrCode == 0) {
+                    VUE.items[VUE.reply._index].ConStatus = 10;
+                    VUE.items[VUE.reply._index].Reply = VUE.reply.ReplyContent.substr(0, 50);
+                    util.toast("处理成功.", "success");
+
+                    $('#modal-reply').modal('hide');
+                } else {
+                    util.toast(result.Message);
+                }
+            }
+
+            instance.methods.reqService.setreply(replyData);
+        }
     }
 
     instance.methods = {
@@ -98,6 +120,10 @@ function consultation() {
             },
             setconsultationstatus: function (data) {
                 data.url = "../api/consultation/setconsultationstatus";
+                util.reqAjaxHandler(data);
+            },
+            setreply: function (data) {
+                data.url = "../api/consultation/setreply";
                 util.reqAjaxHandler(data);
             },
         }

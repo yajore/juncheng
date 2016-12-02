@@ -5,12 +5,17 @@ function myConsultation() {
     instance.load = false;
     instance.init = function () {
 
+        var cid = gobal.queryString("cid").split('#')[0];
 
+        if (cid == "") {
+            gobal.toast("缺少留言id");
+            return false;
+        }
 
         var vm = new Vue({
             el: '#page-my-contents',
             data: {
-                item: [],
+                item: {},
 
             },
             computed: {
@@ -32,9 +37,9 @@ function myConsultation() {
 
 
             if (gobal.isLogin == false) {
-                getUser(getcon);
+                getUser(getReply);
             } else {
-                getcon();
+                getReply();
             }
 
 
@@ -56,6 +61,7 @@ function myConsultation() {
 
                     } else {
                         gobal.toast(result.Message, 2);
+                        location.href = "jump.ashx?return_url=" + escape('my-content.html?cid=' + cid);
                     }
                 }
             };
@@ -63,17 +69,23 @@ function myConsultation() {
 
         }
 
-        function getcon() {
+        function getReply() {
 
-            var content = sessionStorage.getItem("juncheng_user_consultation");
-            if (content) {
+            var req = gobal.QueryJson();
+            req.Body = cid;
+            var reqData = {
+                data: req,
+                callback: function (result) {
+                    if (result.ErrCode == 0) {
 
-                content = JSON.parse(content);
-                content.Mobile = content.Mobile.substr(0, 3) + "****" + content.Mobile.substr(7);
-                vm.item = content;
-            } else {
-                gobal.toast("留言内容缺失", 2);
-            }
+                        vm.item = result.Body;
+                    } else {
+                        gobal.toast(result.Message, 2);
+                    }
+                }
+            };
+            instance.api.getreplay(reqData);
+
         }
 
 
@@ -86,9 +98,9 @@ function myConsultation() {
             ajaxjson.callback = _data.callback;
             new gobal.reqAjaxHandler(ajaxjson);
         },
-        getcon: function (_data) {
+        getreplay: function (_data) {
             var ajaxjson = {};
-            ajaxjson.url = "api/consultation/my"
+            ajaxjson.url = "api/consultation/getreplybyid"
             ajaxjson.data = _data.data;
             ajaxjson.callback = _data.callback;
             new gobal.reqAjaxHandler(ajaxjson);

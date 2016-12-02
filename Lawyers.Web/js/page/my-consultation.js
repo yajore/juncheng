@@ -17,8 +17,8 @@ function myConsultation() {
             },
             methods: {
                 go: function (_item) {
-                    sessionStorage.setItem("juncheng_user_consultation", JSON.stringify(_item));
-                    location.href = "my-content.html";
+                    //sessionStorage.setItem("juncheng_user_consultation", JSON.stringify(_item));
+                    location.href = "my-content.html?cid=" + _item.Sysno;
                 },
                 getLongDate: function (time) {
                     return time.substr(2, 14).replace("T", " ");
